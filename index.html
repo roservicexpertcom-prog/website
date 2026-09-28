@@ -14,7 +14,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind Configuration for Custom Colors and Fonts -->
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,9 +24,9 @@
                     },
                     colors: {
                         brand: {
-                            light: '#e0f2fe', // blue-100
-                            DEFAULT: '#0ea5e9', // sky-500
-                            dark: '#0369a1', // sky-700
+                            light: '#e0f2fe',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0369a1',
                         }
                     }
                 }
@@ -34,19 +34,16 @@
         }
     </script>
     <style>
-        /* Custom styles for animations and specific tweaks */
-        .wave-bg {
-            background-color: #0ea5e9;
-            background-image: radial-gradient(at 40% 20%, hsla(200,100%,74%,1) 0px, transparent 50%),
-                              radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
-                              radial-gradient(at 0% 50%, hsla(210,100%,76%,1) 0px, transparent 50%);
-        }
         .whatsapp-float {
             animation: bounce-slight 2s infinite ease-in-out;
         }
         @keyframes bounce-slight {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
+        }
+        /* Custom dot active state transition */
+        .carousel-dot {
+            transition: width 0.3s ease, background-color 0.3s ease;
         }
     </style>
 </head>
@@ -96,59 +93,101 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden wave-bg text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Hero Text -->
-                <div class="text-center lg:text-left space-y-8">
-                    <div class="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-sm font-semibold mb-4 border border-white/30">
-                        <i class="fa-solid fa-location-dot mr-1"></i> Serving All Over Haridwar
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                        Pure Water, <br> Healthy Life.
-                    </h1>
-                    <p class="text-lg sm:text-xl text-blue-50 max-w-2xl mx-auto lg:mx-0 font-light">
-                        Expert RO water purifier repair, installation, and maintenance services at your doorstep. We fix all brands quickly and affordably.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <a href="https://wa.me/919997230510" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white text-brand-dark font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center">
-                            <i class="fa-brands fa-whatsapp text-xl mr-2 text-green-500"></i> Book Service Now
-                        </a>
-                        <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-brand-dark/30 hover:bg-brand-dark/50 border border-white/50 text-white font-medium rounded-full transition-all duration-300 text-center">
-                            View Services
-                        </a>
-                    </div>
-                    <!-- Trust Indicators -->
-                    <div class="flex items-center justify-center lg:justify-start space-x-6 pt-6 text-sm text-blue-100">
-                        <div class="flex items-center"><i class="fa-solid fa-check-circle mr-2"></i> 100% Genuine Parts</div>
-                        <div class="flex items-center"><i class="fa-solid fa-check-circle mr-2"></i> Same Day Service</div>
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="relative pt-20 lg:pt-28 overflow-hidden h-[600px] lg:h-[700px] text-white">
+        <!-- Carousel Slides -->
+        <div id="carousel-slides" class="relative w-full h-full">
+            
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div> <!-- Dark overlay for text readability -->
+                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                    <div class="max-w-2xl space-y-6 mt-16 md:mt-0">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-brand/80 text-sm font-semibold mb-2 border border-white/30">
+                            <i class="fa-solid fa-droplet mr-1"></i> Expert RO Repair
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            Pure Water, <br> Healthy Life.
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-200 font-light">
+                            Expert RO water purifier repair, installation, and maintenance services at your doorstep in Haridwar.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="https://wa.me/919997230510" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand-dark text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Book Service Now
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Hero Image (Placeholder for RO Machine) -->
-                <div class="relative hidden lg:block">
-                    <div class="absolute inset-0 bg-white/10 rounded-full blur-3xl transform scale-90"></div>
-                    <!-- Using a nicely styled placeholder that looks like a clean graphic -->
-                    <div class="relative w-full h-[500px] bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-500">
-                        <i class="fa-solid fa-faucet-drip text-9xl text-brand mb-8 drop-shadow-md"></i>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-2">RO Systems</h3>
-                        <p class="text-slate-500 text-center">All Brands Supported<br>Kent, Aquaguard, Livpure & more</p>
-                        
-                        <!-- Decorative floating elements -->
-                        <div class="absolute top-10 left-10 bg-blue-100 p-3 rounded-full animate-bounce" style="animation-duration: 3s;">
-                            <i class="fa-solid fa-droplet text-brand"></i>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1546074177-3e8dfbe6a422?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                    <div class="max-w-2xl space-y-6 mt-16 md:mt-0">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-brand/80 text-sm font-semibold mb-2 border border-white/30">
+                            <i class="fa-solid fa-shield-halved mr-1"></i> AMC Services
                         </div>
-                        <div class="absolute bottom-20 right-10 bg-blue-100 p-4 rounded-full animate-bounce" style="animation-duration: 4s;">
-                            <i class="fa-solid fa-droplet text-brand"></i>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            Complete Peace <br> of Mind.
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-200 font-light">
+                            Get our affordable Annual Maintenance Contract (AMC) for year-round hassle-free pure drinking water.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="tel:+919997230510" class="w-full sm:w-auto px-8 py-4 bg-white text-brand-dark hover:bg-slate-100 font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center">
+                                <i class="fa-solid fa-phone mr-2"></i> Call to Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519821447094-eb163d085956?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                    <div class="max-w-2xl space-y-6 mt-16 md:mt-0">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-brand/80 text-sm font-semibold mb-2 border border-white/30">
+                            <i class="fa-solid fa-plug mr-1"></i> New Installation
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            Neat & Leak-Free <br> Installations.
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-200 font-light">
+                            Shifting to a new home? Bought a new RO? We provide expert installation across Haridwar.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="https://wa.me/919997230510" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-green-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Book via WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Carousel Controls -->
+        <button id="prev-slide" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-brand text-white backdrop-blur-md transition-colors border border-white/30 focus:outline-none shadow-lg">
+            <i class="fa-solid fa-chevron-left text-lg md:text-xl"></i>
+        </button>
+        <button id="next-slide" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-brand text-white backdrop-blur-md transition-colors border border-white/30 focus:outline-none shadow-lg">
+            <i class="fa-solid fa-chevron-right text-lg md:text-xl"></i>
+        </button>
+
+        <!-- Carousel Indicators -->
+        <div class="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+            <button class="carousel-dot w-3 h-3 rounded-full bg-brand transition-colors focus:outline-none shadow-md" data-index="0"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors focus:outline-none shadow-md" data-index="1"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors focus:outline-none shadow-md" data-index="2"></button>
+        </div>
         
         <!-- Bottom Wave SVG -->
-        <div class="absolute bottom-0 w-full overflow-hidden leading-none z-0">
+        <div class="absolute bottom-0 w-full overflow-hidden leading-none z-20">
             <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.2,201,111.4,242.75,106.82,284.18,91.24,321.39,56.44Z" fill="#f8fafc"></path>
             </svg>
@@ -394,7 +433,8 @@
     <!-- Interactivity Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle
+            
+            // --- Mobile Menu Logic ---
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
             const icon = btn.querySelector('i');
@@ -410,7 +450,6 @@
                 }
             });
 
-            // Close mobile menu on link click
             const mobileLinks = menu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -420,7 +459,7 @@
                 });
             });
 
-            // Navbar background effect on scroll
+            // --- Navbar Scroll Logic ---
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
@@ -432,6 +471,70 @@
                     navbar.classList.add('shadow-sm', 'bg-white/90');
                 }
             });
+
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.getElementById('prev-slide');
+            const nextBtn = document.getElementById('next-slide');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function goToSlide(index) {
+                // Hide current slide
+                slides[currentSlide].classList.remove('opacity-100', 'z-10');
+                slides[currentSlide].classList.add('opacity-0', 'z-0');
+                dots[currentSlide].classList.remove('bg-brand');
+                dots[currentSlide].classList.add('bg-white/50');
+
+                // Update current slide index
+                currentSlide = (index + slides.length) % slides.length;
+
+                // Show new slide
+                slides[currentSlide].classList.remove('opacity-0', 'z-0');
+                slides[currentSlide].classList.add('opacity-100', 'z-10');
+                dots[currentSlide].classList.remove('bg-white/50');
+                dots[currentSlide].classList.add('bg-brand');
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            function startAutoplay() {
+                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function resetAutoplay() {
+                clearInterval(slideInterval);
+                startAutoplay();
+            }
+
+            // Event Listeners for Carousel
+            if(slides.length > 0) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetAutoplay();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetAutoplay();
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        goToSlide(index);
+                        resetAutoplay();
+                    });
+                });
+
+                // Start autoplay on load
+                startAutoplay();
+            }
         });
     </script>
 </body>
