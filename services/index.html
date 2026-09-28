@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | RO Service Expert</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0369a1',
+                        },
+                        accent: {
+                            red: '#ff0000',
+                            purple: '#8b5cf6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .whatsapp-float {
+            animation: bounce-slight 2s infinite ease-in-out;
+        }
+        @keyframes bounce-slight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand selection:text-white pb-16 md:pb-0 pt-24">
+
+    <!-- Header / Navbar -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="https://roservicexpert.com/" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <i class="fa-solid fa-droplet text-brand text-2xl mr-2"></i>
+                    <span class="font-bold text-2xl text-slate-900">RO Service <span class="text-brand">Expert</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="https://roservicexpert.com/" class="text-slate-600 hover:text-brand font-medium transition-colors">Home</a>
+                    <a href="https://roservicexpert.com/services" class="text-brand font-semibold transition-colors border-b-2 border-brand pb-1">Services</a>
+                    <a href="https://roservicexpert.com/about-us" class="text-slate-600 hover:text-brand font-medium transition-colors">About Us</a>
+                    <a href="https://roservicexpert.com/why-us" class="text-slate-600 hover:text-brand font-medium transition-colors">Why Us</a>
+                    <a href="tel:+919997230510" class="bg-brand text-white px-6 py-2 rounded-full font-medium hover:bg-brand-dark transition-colors shadow-md shadow-brand/30 flex items-center">
+                        <i class="fa-solid fa-phone mr-2 text-sm"></i> Call Now
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="https://roservicexpert.com/" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand hover:bg-slate-50 rounded-md">Home</a>
+                <a href="https://roservicexpert.com/services" class="block px-3 py-3 text-base font-bold text-brand bg-brand-light/30 rounded-md">Services</a>
+                <a href="https://roservicexpert.com/about-us" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand hover:bg-slate-50 rounded-md">About Us</a>
+                <a href="https://roservicexpert.com/why-us" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand hover:bg-slate-50 rounded-md">Why Us</a>
+                <a href="tel:+919997230510" class="block mt-4 bg-brand text-white px-3 py-3 rounded-md font-medium text-center">
+                    <i class="fa-solid fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen">
+        
+        <!-- Section 1: Basic Services Grid -->
+        <section class="py-12 md:py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1556767576-5ec41e3239ea?auto=format&fit=crop&w=400&q=80" alt="RO Service" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">RO Service ₹199/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Tank cleaning</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Sediment filter back wash</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> TDs check</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Water quality report</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> RO outer body cleaning</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="RO Repair" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">RO Repair ₹199/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Low Water Flow</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Foul Taste/Odour</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> RO Not Working</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Water Leakage</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Unknown issue</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=400&q=80" alt="RO AMC" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">RO AMC ₹3850/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Covered All Filters & Membrane</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Covered All Electric Parts</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Free Periodic Services On Every 3 months</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Auto Service Reminder</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> You are exempted from all extra charges</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1556767576-5ec41e3239ea?auto=format&fit=crop&w=400&q=80" alt="RO On Rent" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">RO On Rent ₹399/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Unlimited Pure Water</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Same Day Installation</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> RO With Copper & Alkaline</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Free Periodically Filter Replacement</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Free Installation & Delivery</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="RO Installation" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">RO Installation ₹349/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> We Install All Brand RO</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Cover leakage & Minor Repair</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Ensures Safe And Hassle-Free RO Installation</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> RO Uninstallation & Shifting Available</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-white rounded-xl shadow-[0_2px_15px_rgba(0,0,0,0.08)] border border-slate-100 p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-44 mb-4 flex justify-center items-center overflow-hidden rounded-md bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=400&q=80" alt="Commercial RO Repair" class="h-full w-full object-cover">
+                        </div>
+                        <h4 class="text-3xl font-bold text-brand text-center mb-1">RO Unit</h4>
+                        <h3 class="text-xl font-extrabold text-center text-slate-900 mb-4">Commercial RO Repair ₹199/-</h3>
+                        <p class="font-medium text-slate-900 mb-3">Include:</p>
+                        <ul class="space-y-2 mb-8 text-slate-800 text-sm flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> We Repair All Capacity RO Plant From 50LPH To 5000LPH</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Low Water Flow</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Foul Taste/Odour</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> RO Not Working</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-900 mt-1 mr-2"></i> Water Leakage</li>
+                        </ul>
+                        <div class="text-center mt-auto">
+                            <a href="tel:+919997230510" class="inline-block bg-brand text-white font-bold py-2.5 px-8 rounded hover:bg-brand-dark transition-colors shadow-md">Call Now</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Lowest Price Guarantee -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Side: Text Content -->
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+                            Lowest Price<br>Guarantee
+                        </h2>
+                        <p class="text-slate-500 mb-8 leading-relaxed text-sm text-justify md:text-left">
+                            How Frequently Your RO Filters Needs To Be Replaced: Pre and post Carbon filter – 6-8 months, Spun filter -3-4 months, Sediment filter – 6-8 months, Membrane – 10-12 months. This frequency is only ideal where water is not very hard. If the water is hard (TDS value>2000) – then life for each of the part is reduced to 50-60% and thus time interval needed for replacement of these parts also halves.
+                        </p>
+                        <button class="bg-brand hover:bg-brand-dark text-white font-semibold py-3 px-8 rounded transition-colors shadow-md">
+                            Explore More
+                        </button>
+                    </div>
+
+                    <!-- Right Side: Pricing Cards -->
+                    <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        
+                        <!-- Pricing Card 1 -->
+                        <div class="border-2 border-brand rounded-xl p-8 flex flex-col items-center bg-white shadow-sm hover:shadow-xl transition-shadow">
+                            <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-md">
+                                Ro
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-1">Regular Service</h3>
+                            <p class="text-xs font-semibold text-slate-700 mb-6 tracking-wide">On-Site Free Installation</p>
+                            <div class="text-6xl font-bold text-slate-800 mb-8 flex items-start">
+                                <span class="text-3xl mt-1 mr-1">₹</span>999
+                            </div>
+                            
+                            <ul class="space-y-4 mb-10 w-full text-slate-600 text-sm">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Sediment Filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Pre Carbon filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Post Carbon Filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Pre Filter Candle</li>
+                            </ul>
+                            
+                            <button class="w-[90%] bg-brand hover:bg-brand-dark text-white font-semibold py-3 px-4 rounded mt-auto transition-colors">
+                                Book Now
+                            </button>
+                        </div>
+
+                        <!-- Pricing Card 2 -->
+                        <div class="border-2 border-brand rounded-xl p-8 flex flex-col items-center bg-white shadow-sm hover:shadow-xl transition-shadow">
+                            <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-md">
+                                Ro
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-1">Full Service</h3>
+                            <p class="text-xs font-semibold text-slate-700 mb-6 tracking-wide">On-Site Free Installation</p>
+                            <div class="text-6xl font-bold text-slate-800 mb-8 flex items-start">
+                                <span class="text-3xl mt-1 mr-1">₹</span>1799
+                            </div>
+                            
+                            <div class="w-full mb-3 text-left">
+                                <p class="text-sm text-slate-800 font-medium">Included:</p>
+                            </div>
+                            <ul class="space-y-4 mb-10 w-full text-slate-600 text-sm">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> RO Membrane</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Sediment Filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Pre Carbon Filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Post Carbon Filter</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-brand mr-3"></i> Pre Filter Candle</li>
+                            </ul>
+                            
+                            <button class="w-[90%] bg-brand hover:bg-brand-dark text-white font-semibold py-3 px-4 rounded mt-auto transition-colors">
+                                Book Now
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-slate-300 pt-16 pb-32 md:pb-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-droplet text-brand text-2xl mr-2"></i>
+                        <span class="font-bold text-2xl text-white">RO Service <span class="text-brand">Expert</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Your reliable partner for clean and pure drinking water. Providing top-notch RO repair, installation, and AMC services across Haridwar.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/919997230510" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://roservicexpert.com/" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand"></i> Home</a></li>
+                        <li><a href="https://roservicexpert.com/about-us" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand"></i> About Us</a></li>
+                        <li><a href="https://roservicexpert.com/services" class="text-brand transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand"></i> Services</a></li>
+                        <li><a href="https://roservicexpert.com/why-us" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand"></i> Why Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-wrench text-xs mr-2 text-brand"></i> RO Repair</a></li>
+                        <li><a href="#" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-plug text-xs mr-2 text-brand"></i> New Installation</a></li>
+                        <li><a href="#" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-file-contract text-xs mr-2 text-brand"></i> Annual Maintenance (AMC)</a></li>
+                        <li><a href="#" class="hover:text-brand transition-colors flex items-center"><i class="fa-solid fa-filter text-xs mr-2 text-brand"></i> Filter Replacement</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-brand"></i>
+                            <span>Shop No 4, Road, near Kishore Provision Store, Sitapur, Haridwar, Uttarakhand 249404</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-brand"></i>
+                            <a href="tel:+919997230510" class="hover:text-brand transition-colors">+91 99972 30510</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-brand"></i>
+                            <a href="mailto:roservicexpert.com@gmail.com" class="hover:text-brand transition-colors break-all">roservicexpert.com@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-clock mr-3 text-brand"></i>
+                            <span>Mon - Sun: 8:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2026 RO Service Expert. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed for pure water solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Desktop Only) -->
+    <a href="https://wa.me/919997230510?text=Hi,%20I%20am%20looking%20for%20RO%20Services" target="_blank" class="hidden md:flex fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full items-center justify-center text-3xl shadow-lg shadow-green-500/30 hover:scale-110 transition-transform z-50 whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Mobile Sticky Bottom Buttons -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex md:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.15)]">
+        <a href="https://wa.me/919997230510?text=Hi,%20I%20am%20looking%20for%20RO%20Services" target="_blank" class="flex-1 bg-[#25D366] text-white py-4 flex items-center justify-center text-lg font-bold gap-2 active:bg-green-600 transition-colors">
+            <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+        </a>
+        <a href="tel:+919997230510" class="flex-1 bg-[#f5a623] text-slate-900 py-4 flex items-center justify-center text-lg font-bold gap-2 active:bg-amber-500 transition-colors">
+            <i class="fa-solid fa-phone text-xl"></i> Call Now
+        </a>
+    </div>
+
+    <!-- Interactivity Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu Logic ---
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+
+            // --- Navbar Scroll Logic ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
