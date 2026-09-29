@@ -430,6 +430,49 @@
         </a>
     </div>
 
+    <!-- Lead Generation Popup Modal -->
+    <div id="lead-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-2xl shadow-2xl w-[90%] max-w-md overflow-hidden relative transform scale-95 transition-transform duration-300">
+            
+            <!-- Modal Header -->
+            <div class="bg-slate-900 p-5 text-white flex justify-between items-center">
+                <h3 class="text-xl font-bold flex items-center"><i class="fa-solid fa-droplet text-brand mr-2"></i> Book RO Service</h3>
+                <button id="close-modal-btn" class="text-slate-300 hover:text-white transition-colors focus:outline-none">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body & Form -->
+            <div class="p-6">
+                <p class="text-slate-600 mb-6 text-sm text-center">Fill out the form below and our expert will contact you shortly.</p>
+                
+                <form action="https://formspree.io/f/mljdzndr" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-slate-800 mb-1">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-slate-800 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10-digit mobile number" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-sm font-semibold text-slate-800 mb-1">Service Required</label>
+                        <select id="service" name="service" required class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all bg-white cursor-pointer">
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="RO Repair">RO Repair</option>
+                            <option value="New Installation">New Installation</option>
+                            <option value="AMC">AMC</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3 rounded-lg transition-colors shadow-md mt-4 flex justify-center items-center">
+                        Submit Request <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Interactivity Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -535,6 +578,49 @@
                 // Start autoplay on load
                 startAutoplay();
             }
+
+            // --- Lead Generation Modal Logic ---
+            const leadModal = document.getElementById('lead-modal');
+            const closeBtn = document.getElementById('close-modal-btn');
+
+            if(leadModal && closeBtn) {
+                // Show modal automatically after 1.5 seconds (1500ms)
+                setTimeout(() => {
+                    leadModal.classList.remove('hidden');
+                    leadModal.classList.add('flex');
+                    
+                    // Slight delay to trigger CSS fade/scale transition
+                    setTimeout(() => {
+                        leadModal.classList.remove('opacity-0');
+                        leadModal.classList.add('opacity-100');
+                        const modalContent = leadModal.querySelector('div');
+                        modalContent.classList.remove('scale-95');
+                        modalContent.classList.add('scale-100');
+                    }, 50);
+                }, 1500);
+
+                // Close modal function
+                const closeModal = () => {
+                    leadModal.classList.remove('opacity-100');
+                    leadModal.classList.add('opacity-0');
+                    const modalContent = leadModal.querySelector('div');
+                    modalContent.classList.remove('scale-100');
+                    modalContent.classList.add('scale-95');
+                    
+                    // Wait for CSS transition to finish before hiding from DOM
+                    setTimeout(() => {
+                        leadModal.classList.remove('flex');
+                        leadModal.classList.add('hidden');
+                    }, 300); 
+                };
+
+                // Close Listeners (X button or clicking outside modal)
+                closeBtn.addEventListener('click', closeModal);
+                leadModal.addEventListener('click', (e) => {
+                    if (e.target === leadModal) closeModal();
+                });
+            }
+
         });
     </script>
 </body>
