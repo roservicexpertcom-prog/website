@@ -100,7 +100,11 @@
             
             <!-- Slide 1 -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10">
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://github.com/roservicexpertcom-prog/website/blob/main/Ro%20slide%201.png?raw=true');"></div>
+                <!-- Mobile Background Image -->
+                <div class="absolute inset-0 bg-cover bg-center block md:hidden" style="background-image: url('https://github.com/roservicexpertcom-prog/website/blob/main/Ro%20slide%201%20mobile.png?raw=true');"></div>
+                <!-- Desktop Background Image -->
+                <div class="absolute inset-0 bg-cover bg-center hidden md:block" style="background-image: url('https://github.com/roservicexpertcom-prog/website/blob/main/Ro%20slide%201.png?raw=true');"></div>
+                
                 <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div> <!-- Dark overlay for text readability -->
                 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
                     <div class="max-w-2xl space-y-6 mt-16 md:mt-0">
