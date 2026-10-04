@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Review - RO Service Expert</title>
+    <style>
+        /* --- THEME COLORS: RO / WATER (Blue & Cyan) --- */
+        :root {
+            --primary: #0288d1; /* Water Blue */
+            --primary-dark: #01579b;
+            --bg-color: #e1f5fe; 
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --gold: #ffc107; 
+            --gray: #607d8b;
+            --border: #b3e5fc;
+            --box-border: #4fc3f7; 
+            --box-bg: #f1f8e9;     
+            --highlight: #00bcd4; 
+            --whatsapp: #25D366;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0; padding: 20px 10px;
+            min-height: 100vh; display: flex;
+            justify-content: center; align-items: flex-start;
+            color: var(--text-main);
+        }
+
+        .container {
+            background: var(--card-bg); width: 100%; max-width: 500px;
+            padding: 25px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(2, 136, 209, 0.15);
+            border-top: 6px solid var(--primary); margin: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- 🔒 LOCK SCREEN --- */
+        #lockScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.98); z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px; border-radius: 16px;
+        }
+        .contact-admin-btn {
+            background-color: var(--primary); color: #ffffff !important; padding: 12px 25px;
+            border-radius: 8px; text-decoration: none; font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-top: 20px;
+            -webkit-appearance: none;
+        }
+
+        /* HEADER */
+        h1 { color: var(--primary-dark); margin: 5px 0 2px 0; font-size: 26px; font-weight: 800; letter-spacing: 0.5px; }
+        .location { 
+            color: var(--primary-dark); font-size: 12px; font-weight: 700; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; 
+            background: #e1f5fe; padding: 6px 15px; border-radius: 20px; display: inline-block;
+        }
+
+        .phone-link {
+            text-decoration: none; color: #ffffff !important; background-color: var(--primary);
+            padding: 10px 22px; border-radius: 25px; display: inline-block;
+            font-size: 15px; font-weight: 700; transition: 0.2s;
+            box-shadow: 0 4px 6px rgba(2, 136, 209, 0.2); margin-bottom: 25px;
+            -webkit-appearance: none;
+        }
+
+        select, input, textarea {
+            width: 100%; padding: 12px; border-radius: 10px;
+            border: 1px solid var(--border); background: #fff;
+            font-size: 14px; outline: none; margin-bottom: 10px;
+            color: var(--text-main); font-family: inherit; transition: 0.3s;
+            -webkit-appearance: none;
+        }
+        select:focus, input:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(3, 169, 244, 0.2); }
+        label { font-weight: 700; display: block; margin-top: 15px; margin-bottom: 6px; color: var(--primary-dark); font-size: 12px; text-transform: uppercase; text-align: left; }
+
+        /* RATING */
+        .star-container { display: flex; justify-content: center; gap: 8px; margin: 20px 0; }
+        .star { font-size: 45px; color: #cfd8dc; cursor: pointer; transition: transform 0.2s, color 0.2s; }
+        .star.selected { color: var(--gold); transform: scale(1.1); }
+
+        .experience-btns { display: flex; gap: 10px; margin-bottom: 25px; justify-content: center; }
+        .exp-btn {
+            padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px;
+            background-color: #fff; cursor: pointer; font-weight: 600; color: var(--text-main);
+            flex: 1; transition: 0.2s; font-size: 14px;
+            -webkit-appearance: none;
+        }
+        .exp-btn.active { background-color: var(--primary); color: #ffffff !important; border-color: var(--primary); box-shadow: 0 4px 10px rgba(2, 136, 209, 0.3); }
+        .exp-btn.bad-active { background-color: var(--danger); color: #ffffff !important; border-color: var(--danger); box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
+
+        .action-btn {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #ffffff !important; border: none; border-radius: 8px;
+            font-size: 16px; font-weight: 700; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 10px;
+            -webkit-appearance: none; display: block;
+        }
+
+        /* INPUT MODES */
+        .input-mode-tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+        .mode-btn { 
+            flex: 1; padding: 10px; border: 1px solid var(--primary); border-radius: 8px; 
+            background-color: #fff; color: var(--primary); font-weight: 600; cursor: pointer; font-size: 13px;
+            -webkit-appearance: none;
+        }
+        .mode-btn.active-mode { background-color: var(--primary); color: #ffffff !important; }
+
+        .voice-section, .text-section {
+            background-color: #e1f5fe; padding: 12px; border-radius: 12px; 
+            margin-bottom: 20px; border: 1px dashed var(--primary); text-align: left;
+        }
+        .voice-controls { display: flex; align-items: center; gap: 10px; }
+        .mic-btn {
+            width: 45px; height: 45px; border-radius: 50%;
+            background-color: var(--primary); color: #ffffff !important; border: none;
+            font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(2, 136, 209, 0.3);
+            display: flex; align-items: center; justify-content: center;
+            -webkit-appearance: none;
+        }
+        .mic-active { animation: pulse 1.5s infinite; background-color: var(--danger); }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 100% { box-shadow: 0 0 0 10px rgba(0,0,0,0); } }
+
+        /* CHIPS */
+        .category-header { font-size: 11px; color: var(--primary-dark); margin: 20px 0 8px 0; font-weight: 800; letter-spacing: 0.5px; border-bottom: 1px dashed var(--border); padding-bottom: 4px; text-align: left; }
+        .keywords-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .keyword-chip { 
+            padding: 8px 12px; background-color: #f5f5f5; border-radius: 20px; 
+            font-size: 12px; font-weight: 600; cursor: pointer; 
+            border: 1px solid #cfd8dc; color: var(--text-main); 
+            flex-grow: 1; text-align: center; transition: 0.2s;
+        }
+        .keyword-chip.active { background-color: var(--primary); color: #ffffff !important; border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 3px 8px rgba(2, 136, 209, 0.2); }
+
+        /* REVIEW BOX */
+        .review-preview-box {
+            width: 100%; min-height: 140px; padding: 15px; margin-top: 20px;
+            border: 1px solid var(--box-border); border-radius: 12px;
+            background-color: #fafafa; color: #334155;
+            font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', sans-serif;
+            resize: none; outline: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); display: none;
+        }
+
+        .copy-btn { 
+            width: 100%; padding: 14px; background-color: var(--whatsapp); 
+            color: #ffffff !important; border: none; border-radius: 8px; margin-top: 15px; 
+            font-weight: 700; font-size: 15px; cursor: pointer; display: none; 
+            box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2); 
+            -webkit-appearance: none;
+        }
+
+        /* OWNER PANEL */
+        #ownerPanel {
+            display: none; margin-top: 20px; padding: 15px;
+            border: 2px dashed var(--whatsapp); border-radius: 12px;
+            background-color: #f0fdf4; text-align: left;
+        }
+        .whatsapp-send-btn {
+            width: 100%; padding: 12px; background-color: var(--whatsapp);
+            color: #ffffff !important; border: none; border-radius: 8px;
+            font-size: 15px; font-weight: 700; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            -webkit-appearance: none;
+        }
+
+        /* UTILS */
+        .fade-in { animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none !important; }
+        .toggle-name { font-size: 13px; color: var(--primary); text-decoration: underline; cursor: pointer; float: right; margin-top: 5px; border: none; background: none; font-weight:bold; }
+        
+        /* FOOTER */
+        .footer { margin-top: 35px; text-align: center; font-size: 12px; color: #607d8b; border-top: 1px dashed var(--border); padding-top: 15px; }
+        .footer-logo { display: block; margin: 0 auto 5px auto; max-height: 28px; width: auto; opacity: 0.85; }
+        .footer a { color: var(--primary-dark); text-decoration: none; font-weight: 700; }
+        .owner-login-trigger {
+            font-size: 11px; color: #ccc; cursor: pointer; text-decoration: none;
+            position: absolute; bottom: 5px; right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainApp">
+
+    <!-- 🔒 SERVICE SUSPENDED OVERLAY -->
+    <div id="lockScreen" style="display: none;">
+        <div style="font-size: 60px; margin-bottom: 20px;">🔒</div>
+        <div style="font-size: 24px; font-weight: 800; color: #01579b; margin-bottom: 10px;">Service Suspended</div>
+        <div style="font-size: 15px; color: #607d8b; margin-bottom: 30px; line-height: 1.5;">
+            This review generation tool is temporarily unavailable.<br>Please contact the administrator.
+        </div>
+        <a href="tel:+917020360561" class="contact-admin-btn">Contact Support</a>
+    </div>
+
+    <!-- 💧 CUSTOMER DIRECT LINK VIEW -->
+    <div id="customerLinkView" class="hidden" style="text-align: center; padding: 20px;">
+        <div style="font-size: 45px; margin-bottom: 10px;">💧🔧</div>
+        <h2 style="color:var(--primary-dark);">Hello!</h2>
+        <p style="color:#555; font-size:15px; margin-bottom:20px;">
+            Here is the review for your recent RO Service experience.<br>Tap below to copy & post.
+        </p>
+        <textarea id="customerReviewText" class="review-preview-box" readonly style="display:block; background:#fafafa;"></textarea>
+        <button class="copy-btn" style="display:block; margin-top:15px;" onclick="copyCustomerLinkReview()">📋 Copy & Open Google</button>
+        <p style="font-size:12px; color:#999; margin-top:20px;">Thank you for trusting RO Service Expert! 🙏</p>
+    </div>
+
+    <!-- 🚀 MAIN GENERATOR APP -->
+    <div id="generatorApp">
+        <div style="font-size: 35px; margin-bottom: 5px;">🔧💧</div>
+        <h1>RO Service Expert</h1>
+        <div class="location">Haridwar • Rishikesh • Sitapur</div>
+
+        <div>
+            <a href="tel:+910000000000" class="phone-link">📞 Call for Service</a>
+        </div>
+
+        <div id="ratingScreen" class="fade-in">
+            <p style="font-weight:700; color:#455A64; font-size: 16px;">How was the service provided?</p>
+            <div class="star-container">
+                <span class="star" onclick="rate(1)">★</span>
+                <span class="star" onclick="rate(2)">★</span>
+                <span class="star" onclick="rate(3)">★</span>
+                <span class="star" onclick="rate(4)">★</span>
+                <span class="star" onclick="rate(5)">★</span>
+            </div>
+            <div class="experience-btns">
+                <button class="exp-btn" id="btn-bad" onclick="selectExp('bad')">Not Happy 😞</button>
+                <button class="exp-btn" id="btn-good" onclick="selectExp('good')">Excellent! 😍</button>
+            </div>
+            <button class="action-btn" onclick="processRating()">Next Step ➡</button>
+        </div>
+
+        <div id="privateFeedbackScreen" class="hidden fade-in">
+            <h2 style="color:#455A64;">We are sorry! 😔</h2>
+            <p style="font-size: 14px; color:#666;">What went wrong? Your feedback goes directly to management to fix the issue.</p>
+            <textarea id="privateFeedbackText" style="height:120px;" placeholder="Describe the issue..."></textarea>
+            <button class="action-btn" style="background-color:#607d8b;" onclick="submitPrivateFeedback()">Submit Feedback</button>
+        </div>
+
+        <div id="thankYouScreen" class="hidden fade-in">
+            <div style="font-size: 50px; margin-bottom:10px;">✅</div>
+            <h2 style="color:var(--primary);">Thank You!</h2>
+            <p>Your feedback has been successfully submitted.</p>
+        </div>
+
+        <div id="aiToolScreen" class="hidden fade-in" style="text-align: left;">
+            
+            <label style="margin-top:0;">1. Share Your Experience (Optional)</label>
+            <div class="input-mode-tabs">
+                <button class="mode-btn active-mode" id="btnModeVoice" onclick="switchMode('voice')">🎤 Speak</button>
+                <button class="mode-btn" id="btnModeText" onclick="switchMode('text')">✍️ Write</button>
+            </div>
+
+            <div id="voiceSection" class="voice-section">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <span style="font-size:11px; font-weight:bold; color:var(--primary-dark);">SPEAK (Hindi/English):</span>
+                    <select id="voiceLang" style="width:auto; padding:2px; font-size:11px; height:25px; margin:0; -webkit-appearance:menulist;">
+                        <option value="en-IN" selected>English</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="mr-IN">Marathi</option>
+                    </select>
+                </div>
+                <div class="voice-controls">
+                    <button id="micBtn" class="mic-btn" onclick="startListening()">🎤</button>
+                    <div style="flex:1;">
+                        <p id="statusText" style="font-size:12px; color:#555; margin:0;">Tap mic & speak...<br>(Ex: "Bhaiya ne filter achhe se saaf kiya")</p>
+                    </div>
+                </div>
+                <div id="spokenTextDisplay" style="display:none; margin-top:8px; font-size:12px; color:var(--primary-dark); background:#fff; padding:6px; border-radius:4px;"></div>
+            </div>
+
+            <div id="textSection" class="text-section hidden">
+                <textarea id="manualInput" placeholder="Ex: Service was fast and affordable..." style="height:80px; margin-bottom:0;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top:15px;">
+                <div style="flex:1;">
+                    <label style="margin-top:0;">Service Taken</label>
+                    <select id="serviceSelect" style="-webkit-appearance:menulist;">
+                        <option value="" disabled selected>Select Service...</option>
+                        <optgroup label="🔧 Core Services">
+                            <option value="RO Installation">RO Installation</option>
+                            <option value="RO Repair">RO Repair</option>
+                            <option value="Filter Change">Filter/Candle Change</option>
+                            <option value="Membrane Replacement">Membrane Replacement</option>
+                            <option value="General Service (AMC)">General Service (AMC)</option>
+                            <option value="Uninstallation">Uninstallation/Shifting</option>
+                        </optgroup>
+                        <optgroup label="💧 Brands Handled">
+                            <option value="Aquaguard RO">Aquaguard</option>
+                            <option value="Kent RO">Kent</option>
+                            <option value="Pureit RO">Pureit</option>
+                            <option value="Livpure RO">Livpure</option>
+                            <option value="Blue Star RO">Blue Star</option>
+                            <option value="LG Water Purifier">LG</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div style="flex:1;">
+                    <label style="margin-top:0;">Tone</label>
+                    <select id="toneSelect" style="-webkit-appearance:menulist;">
+                        <option value="Professional">Professional 💼</option>
+                        <option value="Happy">Happy 😊</option>
+                        <option value="Short">Short 👌</option>
+                        <option value="Grateful">Grateful 🙏</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <div style="flex:1;">
+                    <label>Location (Area)</label>
+                    <select id="locationSelect" style="-webkit-appearance:menulist;">
+                        <option value="Haridwar">Haridwar</option>
+                        <option value="Rishikesh">Rishikesh</option>
+                        <option value="Sitapur">Sitapur</option>
+                    </select>
+                </div>
+            </div>
+
+            <div><button class="toggle-name" onclick="document.getElementById('nameArea').style.display='block'">+ Add Your Name</button></div>
+            <div id="nameArea" style="display:none; clear:both; margin-top:5px;">
+                <input type="text" id="userName" placeholder="Your Name (Optional)">
+            </div>
+
+            <label style="clear:both;">4. Select Highlights (Pick 3-4)</label>
+
+            <!-- KEYWORDS SECTION -->
+            <div id="keywordsWrapper">
+                
+                <div class="category-header">BEST IN TOWN</div>
+                <div class="keywords-container">
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Best in Haridwar')">📍 Best in Haridwar</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Top Service Rishikesh')">📍 Top Service Rishikesh</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Trusted in Sitapur')">📍 Trusted in Sitapur</div>
+                </div>
+
+                <div class="category-header">SERVICE QUALITY</div>
+                <div class="keywords-container">
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'On Time')">⏰ On Time Arrival</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Same Day Service')">🚀 Same Day Service</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Genuine Parts')">🛡️ Genuine Parts</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Reasonable Rates')">💰 Reasonable Rates</div>
+                </div>
+
+                <div class="category-header">TECHNICIAN</div>
+                <div class="keywords-container">
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Expert Technician')">👨‍🔧 Expert Technician</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Polite Staff')">🤝 Polite Behavior</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Clean Work')">✨ Clean Work</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Quick Response')">⚡ Quick Response</div>
+                </div>
+
+                <div class="category-header">PROBLEMS FIXED</div>
+                <div class="keywords-container">
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'TDS Adjustment')">💧 TDS Fixed</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Taste Improved')">👅 Taste Improved</div>
+                    <div class="keyword-chip" onclick="toggleKeyword(this, 'Leakage Fixed')">🔧 Leakage Fixed</div>
+                </div>
+
+            </div>
+
+            <button class="action-btn" id="generateBtn" onclick="generateReview()">🚀 Generate Magic Review</button>
+
+            <textarea id="reviewOutput" class="review-preview-box" readonly></textarea>
+            
+            <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">📋 Copy & Open Google</button>
+
+            <div id="ownerPanel">
+                <label style="color:var(--whatsapp); margin-top:0;">📱 Customer's WhatsApp Number</label>
+                <div style="display:flex; gap:10px;">
+                    <input type="tel" id="customerPhone" placeholder="Ex: 9876543210" style="margin-bottom:0;">
+                    <button class="whatsapp-send-btn" style="width: auto; padding: 0 20px;" onclick="sendLinkToCustomer()">🚀 Send</button>
+                </div>
+                <p style="font-size:11px; color:#555; margin-top:5px;">Customer will receive a direct link to post this review.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="https://growft.odoo.com/web/image/1477-e0a28764/growft%20logo.webp" class="footer-logo" alt="Growft">
+        <div class="footer-text">Built by <a href="https://growft.net" target="_blank">Growft</a></div>
+        <span class="owner-login-trigger" onclick="ownerLogin()">🔒 Owner</span>
+    </div>
+</div>
+
+<script>
+    // ============================================
+    // 🔒 ADMIN SETTINGS (TRUE/FALSE SYSTEM)
+    // ============================================
+    const SERVICE_SUSPENDED = false; // Set to 'true' to Lock, 'false' to Unlock
+    
+    // --- GOOGLE LINK ---
+    const GOOGLE_REVIEW_LINK = "https://g.page/r/CSrJ0ogshIvjEBE/review"; 
+    
+    let isOwnerMode = false;
+    let recognition; 
+
+    // --- INITIALIZATION ---
+    window.onload = function() {
+        if (SERVICE_SUSPENDED === true) {
+            document.getElementById('lockScreen').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+            return;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const reviewText = urlParams.get('review');
+        if (reviewText) {
+            document.getElementById('generatorApp').style.display = 'none';
+            document.getElementById('customerLinkView').classList.remove('hidden');
+            document.getElementById('customerReviewText').value = decodeURIComponent(reviewText);
+        } else if(sessionStorage.getItem('isOwner') === 'true') {
+            isOwnerMode = true;
+        }
+    };
+
+    // --- OWNER LOGIC ---
+    function ownerLogin() {
+        if(isOwnerMode) { alert("Already logged in as Owner."); return; }
+        const password = prompt("Enter Owner Password:");
+        if(password === "admin123") { // CHANGE PASSWORD HERE
+            isOwnerMode = true;
+            sessionStorage.setItem('isOwner', 'true');
+            alert("Owner Mode Active!");
+        } else if(password) { alert("Incorrect Password"); }
+    }
+
+    function sendLinkToCustomer() {
+        const phone = document.getElementById('customerPhone').value.replace(/\D/g, '');
+        const review = document.getElementById('reviewOutput').value;
+        if(phone.length < 10) { alert("Enter valid number"); return; }
+        const finalPhone = phone.length === 10 ? "91" + phone : phone;
+        const baseUrl = window.location.href.split('?')[0];
+        const magicLink = `${baseUrl}?review=${encodeURIComponent(review)}`;
+        const msg = `Namaste! 👋\n\nHere is the review for your RO Service with Ro Service Expert:\n\n*Tap this link to Post:*\n${magicLink}`;
+        window.open(`https://wa.me/${finalPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function copyCustomerLinkReview() {
+        const box = document.getElementById("customerReviewText");
+        box.select();
+        document.execCommand('copy');
+        window.open(GOOGLE_REVIEW_LINK, '_blank');
+    }
+
+    // --- RATING & UI LOGIC ---
+    let currentRating = 0;
+    let currentExp = '';
+    let selectedKeywords = [];
+    let voiceText = "";
+    let activeMode = 'voice';
+
+    function switchMode(mode) {
+        activeMode = mode;
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active-mode'));
+        if(mode === 'voice') {
+            document.getElementById('btnModeVoice').classList.add('active-mode');
+            document.getElementById('voiceSection').classList.remove('hidden');
+            document.getElementById('textSection').classList.add('hidden');
+        } else {
+            document.getElementById('btnModeText').classList.add('active-mode');
+            document.getElementById('textSection').classList.remove('hidden');
+            document.getElementById('voiceSection').classList.add('hidden');
+        }
+    }
+
+    function rate(stars) {
+        currentRating = stars;
+        document.querySelectorAll('.star').forEach((star, index) => {
+            star.classList.toggle('selected', index < stars);
+        });
+        if(stars >= 4) selectExp('good'); else selectExp('bad');
+    }
+
+    function selectExp(type) {
+        currentExp = type;
+        document.getElementById('btn-good').classList.remove('active');
+        document.getElementById('btn-bad').classList.remove('bad-active');
+        if (type === 'good') document.getElementById('btn-good').classList.add('active');
+        else document.getElementById('btn-bad').classList.add('bad-active');
+    }
+
+    function processRating() {
+        if (currentRating === 0 && currentExp === '') { alert("Please select a star rating."); return; }
+        document.getElementById('ratingScreen').classList.add('hidden');
+        let isHappy = (currentRating >= 4) || (currentExp === 'good');
+        if (isHappy) document.getElementById('aiToolScreen').classList.remove('hidden');
+        else document.getElementById('privateFeedbackScreen').classList.remove('hidden');
+    }
+
+    function submitPrivateFeedback() {
+        document.getElementById('privateFeedbackScreen').classList.add('hidden');
+        document.getElementById('thankYouScreen').classList.remove('hidden');
+    }
+
+    function toggleKeyword(element, keyword) {
+        element.classList.toggle('active');
+        if (selectedKeywords.includes(keyword)) selectedKeywords = selectedKeywords.filter(k => k !== keyword);
+        else selectedKeywords.push(keyword);
+    }
+
+    // --- VOICE TO TEXT ---
+    function startListening() {
+        if (!('webkitSpeechRecognition' in window)) { alert("Use Chrome Browser for voice typing."); return; }
+        recognition = new webkitSpeechRecognition();
+        recognition.lang = document.getElementById('voiceLang').value;
+        recognition.interimResults = false;
+        document.getElementById('micBtn').classList.add('mic-active');
+        document.getElementById('statusText').innerText = "Listening...";
+        
+        recognition.onresult = (event) => {
+            voiceText = event.results[0][0].transcript;
+            document.getElementById('spokenTextDisplay').style.display = 'block';
+            document.getElementById('spokenTextDisplay').innerText = `Recorded: "${voiceText}"`;
+        };
+        recognition.onend = () => { 
+            document.getElementById('micBtn').classList.remove('mic-active'); 
+            document.getElementById('statusText').innerText = "Processing..."; 
+        };
+        recognition.start();
+    }
+
+    // ============================================
+    // 🧠 MASSIVE AI COMBINATORICS DATABASE (RO SERVICE)
+    // ============================================
+    
+    const connectors = [
+        "What really stood out was that", "Additionally,", "I also noticed that", 
+        "On top of that,", "Another great thing is that", "Not to mention,", 
+        "Furthermore,", "Also,", "I must add that", "Plus,", 
+        "And more importantly,", "We were very pleased that", "To add to this,"
+    ];
+
+    const reviewDB = {
+        intros: {
+            "Professional": [
+                "I hired Ro Service Expert for my water purifier maintenance in {location}.",
+                "Booked them for a {treatment} issue and the service was highly professional.",
+                "Very professional and skilled technician visited my home in {location}.",
+                "If you need reliable RO repair in {location}, they are the best.",
+                "Very professional execution of plumbing work at my home.",
+                "I engaged them for {treatment} and was thoroughly impressed.",
+                "Top quality RO solutions delivered during their visit in {location}.",
+                "Found them to be the most professional water purifier experts in {location}.",
+                "They handled our {treatment} requirement systematically.",
+                "Reliable and skilled technicians operating in the {location} area.",
+                "Recently utilized their services for {treatment} and am extremely satisfied.",
+                "For anyone needing expert RO service in {location}, they are great.",
+                "I am writing this review to commend their professionalism.",
+                "Our experience with the Ro Service Expert team in {location} was seamless."
+            ],
+            "Happy": [
+                "Ro Service Expert is simply the best in {location}!",
+                "Wow! Super fast service for my {treatment}.",
+                "So happy with the water taste now after the {treatment}.",
+                "Finally found a good RO mechanic in {location}.",
+                "Saved my day! My RO stopped working and they fixed it instantly.",
+                "So happy with the clean and neat {treatment} they did.",
+                "Very polite and talented technician in {location}.",
+                "Loved the clean work! Best in {location}.",
+                "My home's water runs pure now thanks to their work.",
+                "Super friendly team and great results for our {treatment}.",
+                "Thanks for the quick fix in {location}!",
+                "Wow! The service they provided for {treatment} is stunning.",
+                "Such nice people and amazing repair skills.",
+                "Totally loved their fast service in {location}!"
+            ],
+            "Short": [
+                "Best RO service in {location}.",
+                "Good {treatment} work done.",
+                "Professional RO service.",
+                "Nice purifier work.",
+                "Recommended RO technician in {location}.",
+                "Affordable and good.",
+                "Fast service for {treatment}.",
+                "Best for home repair.",
+                "Quality repair work.",
+                "Five stars for Ro Service Expert.",
+                "Great job in {location}.",
+                "Skilled technician.",
+                "Good finishing.",
+                "Reliable AMC contractor."
+            ],
+            "Grateful": [
+                "I am really thankful to Ro Service Expert for the urgent {treatment} work.",
+                "They saved my purifier from a major issue with quick repair in {location}.",
+                "Grateful for the honest pricing and good work.",
+                "Thanks a lot for fixing the {treatment} issue so perfectly.",
+                "Appreciate the hard work put in by the technician.",
+                "Thank you for completing the {treatment} on time.",
+                "So glad I found an honest mechanic in {location}.",
+                "Thanks for the perfect repair.",
+                "Really appreciate the clean finishing.",
+                "Thank you for the great water purifier service.",
+                "My sincere thanks to the team in {location}.",
+                "I appreciate how they handled my {treatment} emergency.",
+                "Big thanks for the affordable rate.",
+                "Grateful for the excellent service."
+            ]
+        },
+        
+        keywords: {
+            "Best in Haridwar": ["They are undoubtedly the best RO service in Haridwar.", "Number one choice in Haridwar for water purifiers.", "Leading RO service in Haridwar.", "If you are in Haridwar, they are the best."],
+            "Top Service Rishikesh": ["Best RO experts in Rishikesh.", "Highly rated service in Rishikesh.", "Top choice for Rishikesh residents.", "Best technical support in Rishikesh."],
+            "Trusted in Sitapur": ["Most trusted name in Sitapur.", "Reliable service in Sitapur.", "Best technician in Sitapur.", "Highly trusted by locals in Sitapur."],
+            "On Time": ["The technician was right on time.", "Punctuality is their strong point.", "Arrived exactly when promised.", "They value customer's time perfectly."],
+            "Same Day Service": ["Got the service done on the same day.", "Super fast same-day delivery.", "Quick turnaround time.", "Impressed by the same day response."],
+            "Genuine Parts": ["They used 100% genuine spare parts.", "Authentic filters were installed.", "No compromise on part quality.", "They provide original company parts."],
+            "Reasonable Rates": ["Pricing is very affordable.", "Great service at a fair price.", "Value for money service.", "Honest and reasonable pricing."],
+            "Expert Technician": ["The technician was an expert.", "He knew exactly what the problem was.", "Highly skilled staff.", "The mechanic diagnosed the issue instantly."],
+            "Polite Staff": ["Staff behavior was very polite.", "Very humble and respectful technician.", "Good customer handling.", "The team is very courteous."],
+            "Clean Work": ["They worked very cleanly.", "No mess left behind after service.", "Neat and tidy work.", "Appreciate their clean execution."],
+            "Quick Response": ["Customer support is very responsive.", "They picked up my call instantly.", "Immediate response to my query.", "Fast communication from their side."],
+            "TDS Adjustment": ["Adjusted the TDS to the perfect level.", "Water taste is perfect now.", "Fixed the high TDS issue.", "Maintained healthy TDS levels."],
+            "Taste Improved": ["Water tastes sweet and pure now.", "Bad smell from water is gone.", "Significant improvement in water taste.", "The water quality is amazing now."],
+            "Leakage Fixed": ["Fixed the leakage problem permanently.", "No more dripping water.", "Solved the leakage issue efficiently.", "The annoying leakage is completely gone."]
+        },
+
+        outros: {
+            "Professional": [
+                "Highly recommended for quality service in {location}.",
+                "The best choice for RO maintenance contracts.",
+                "They ensure top-notch finishing and timely delivery.",
+                "Will definitely hire them again for future services.",
+                "A trustworthy name for water purifiers in {location}.",
+                "Professionalism at its best.",
+                "Great value for money service.",
+                "Satisfied with the overall execution.",
+                "Best wishes to the business.",
+                "Do try them for premium AMC plans.",
+                "They are setting high standards in {location}.",
+                "You can trust them for any repair project.",
+                "A reliable partner for home appliances.",
+                "Their dedication to quality is commendable."
+            ],
+            "Happy": [
+                "Will call you guys again! 👍",
+                "Best in {location}, hands down!",
+                "Loving my pure water! 😍",
+                "Keep up the great work!",
+                "Don't look anywhere else for RO service.",
+                "Super satisfied!",
+                "Cheers to the team!",
+                "Will recommend to my neighbors.",
+                "Thanks again!",
+                "You guys are the best.",
+                "Totally worth it!",
+                "Very happy with the promptness.",
+                "Love the team's vibe.",
+                "See you soon for the next filter change."
+            ],
+            "Short": [
+                "Recommended.", "Good job.", "5 Stars.", "Must try.", "Great work.",
+                "Best in {location}.", "Nice finishing.", "Happy customer.", "Thank you.",
+                "Top quality.", "Superb.", "Well done.", "Highly rated.", "Good service."
+            ],
+            "Grateful": [
+                "Thanks once again.", "God bless the team.", "Really appreciate the help.",
+                "I will always recommend you.", "Thanks for being so helpful.", "Grateful for the service.",
+                "Thanks for the fair price.", "So happy with the result.", "Thank you for the support.",
+                "Much appreciated.", "Heartfelt thanks.", "Thanks for solving my problem.",
+                "Appreciate the quick response.", "Thank you for the honesty."
+            ]
+        }
+    };
+
+    // --- GENERATION ENGINE ---
+    async function generateReview() {
+        const btn = document.getElementById('generateBtn');
+        btn.innerText = "🔄 Processing...";
+        
+        const userName = document.getElementById('userName').value.trim();
+        const tone = document.getElementById('toneSelect').value;
+        let location = document.getElementById('locationSelect').value.trim();
+        if(!location) location = "my area";
+        
+        const service = document.getElementById('serviceSelect').value;
+        const manualText = document.getElementById('manualInput').value.trim();
+        let rawInput = activeMode === 'voice' ? voiceText : manualText;
+
+        if (selectedKeywords.length === 0 && !rawInput && !service) {
+            alert("Please select highlights or write/speak something.");
+            btn.innerText = "🚀 Generate Magic Review";
+            return;
+        }
+
+        // Translation Module
+        let finalBodyText = "";
+        if (rawInput && rawInput.length > 1) {
+            try {
+                const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(rawInput)}&langpair=Autodetect|en`);
+                const data = await res.json();
+                let translated = data.responseData ? data.responseData.translatedText : "";
+                if(!translated.includes("PLEASE SELECT")) finalBodyText = translated;
+                else finalBodyText = rawInput;
+            } catch(e) { finalBodyText = rawInput; }
+        }
+
+        // --- BUILDING THE UNIQUE REVIEW ---
+        let treatmentText = service ? service : "RO service";
+        
+        // 1. INTRO
+        let intro = getRandom(reviewDB.intros[tone]);
+        intro = intro.replace(/{location}/g, location).replace(/{treatment}/g, treatmentText);
+        if (userName) intro = `I am ${userName}. ` + intro;
+
+        // 2. MIDDLE / BODY (Shuffled & Connectors applied)
+        let body = "";
+        const shuffledKeywords = selectedKeywords.sort(() => Math.random() - 0.5);
+        
+        shuffledKeywords.forEach((k, index) => {
+            if(reviewDB.keywords[k]) {
+                let sentence = getRandom(reviewDB.keywords[k]);
+                sentence = sentence.replace(/{location}/g, location);
+                
+                if(index > 0 && Math.random() > 0.4) {
+                    sentence = getRandom(connectors) + " " + sentence.charAt(0).toLowerCase() + sentence.slice(1);
+                }
+                body += sentence + " ";
+            }
+        });
+
+        if(finalBodyText) body += " " + finalBodyText + ". ";
+
+        // 3. OUTRO
+        let outro = getRandom(reviewDB.outros[tone]);
+        outro = outro.replace(/{location}/g, location);
+
+        const finalReview = intro + " " + body + outro;
+
+        // Display
+        const box = document.getElementById('reviewOutput');
+        box.value = finalReview;
+        box.style.display = 'block';
+        box.scrollIntoView({behavior: "smooth"});
+        btn.innerText = "🚀 Generate Magic Review";
+
+        if(isOwnerMode) {
+            document.getElementById('ownerPanel').style.display = 'block';
+            document.getElementById('copyBtn').style.display = 'none';
+        } else {
+            document.getElementById('ownerPanel').style.display = 'none';
+            document.getElementById('copyBtn').style.display = 'block';
+        }
+    }
+
+    function toggleKeyword(element, keyword) {
+        element.classList.toggle('active');
+        if (selectedKeywords.includes(keyword)) selectedKeywords = selectedKeywords.filter(k => k !== keyword);
+        else selectedKeywords.push(keyword);
+    }
+
+    function getRandom(arr) { if(!arr) return ""; return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function copyToClipboard() {
+        const box = document.getElementById("reviewOutput");
+        box.select();
+        document.execCommand('copy');
+        if(confirm("Review Copied! 💧\n\nClick OK to open Google and paste.")) {
+            window.open(GOOGLE_REVIEW_LINK, '_blank');
+        }
+    }
+</script>
+
+</body>
+</html>
